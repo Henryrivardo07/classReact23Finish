@@ -1,0 +1,112 @@
+// Variables
+$primary-color: #4caf50;
+$secondary-color: #f44336;
+$background-color: #f5f5f5;
+$card-shadow: rgba(0, 0, 0, 0.1);
+$update-color: #ffa500; // Warna untuk ikon edit (pensil)
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px $card-shadow;
+  border-radius: 8px;
+
+  h1 {
+    text-align: center;
+    color: $primary-color;
+  }
+
+  .addTodoButton {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($primary-color, 0.9);
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: $background-color;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px $card-shadow;
+
+      .todoText {
+        flex: 1;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &.completed {
+          text-decoration: line-through;
+          color: gray;
+        }
+      }
+
+      .updateButton {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: $update-color;
+        margin-right: 8px;
+
+        &:hover {
+          color: darken($update-color, 10%);
+        }
+      }
+
+      .deleteButton {
+        background: $secondary-color;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba($secondary-color, 0.9);
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #2196f3;
+      color: white;
+
+      &:disabled {
+        background: #b0bec5;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        background: rgba(#2196f3, 0.9);
+      }
+    }
+  }
+}
