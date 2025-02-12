@@ -35,7 +35,9 @@ export const useUpdateTodo = () => {
         ...old,
         todos: old.todos.map(
           (todo: any) =>
-            todo.id === newTodo.id ? { ...todo, ...newTodo } : todo // ✅ Update todo yang sesuai ID
+            todo.id === newTodo.id
+              ? { ...todo, ...newTodo, date: todo.date }
+              : todo // ⬅️ Pastikan date tetap ada
         ),
       }));
 

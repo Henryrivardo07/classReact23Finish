@@ -24,10 +24,15 @@ const TodoList = () => {
   };
 
   // ✏️ Handler untuk mengedit todo
-  const handleEditTodo = (id: string, oldTitle: string, completed: boolean) => {
-    const newTitle = prompt('Edit todo title:', oldTitle); // 🔹 Ambil input edit dari user
+  const handleEditTodo = (
+    id: string,
+    oldTitle: string,
+    completed: boolean,
+    date?: string
+  ) => {
+    const newTitle = prompt('Edit todo title:', oldTitle); // Prompt tetap hanya untuk title
     if (newTitle !== null) {
-      updateTodoMutation.mutate({ id, title: newTitle, completed }); // 🔄 Mutasi update todo
+      updateTodoMutation.mutate({ id, title: newTitle, completed, date }); // Pastikan date dikirim
     }
   };
 
@@ -76,7 +81,7 @@ const TodoList = () => {
               <button
                 className={styles.updateButton}
                 onClick={() =>
-                  handleEditTodo(todo.id, todo.title, todo.completed)
+                  handleEditTodo(todo.id, todo.title, todo.completed, todo.date)
                 }
               >
                 ✏️
